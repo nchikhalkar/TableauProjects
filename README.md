@@ -20,6 +20,18 @@ The interactive & dynamic dashboard should include :
 
 Data has been collected from a Udemy course which is made available provided by Start-Tech Academy.
 
-Data set link : Click Here
-
 There are 3 files namely : SALES, CUSTOMERS AND PRODUCTS.
+
+**DATA WRANGLING**
+
+Data was cleaned using SQL and Excel. I cleaned data for further analysis in the following ways :
+
+Functions like =month(date) and =year(date) were used to extract month and year respectively in new columns.
+
+New column called Delivery time taken was calculated using SQL epoch function as shown below :
+
+    SELECT *, ROUND((DATEDIFF(SECOND, order_date, ship_date) / 86400.0), 2) AS delivery_time
+    FROM dbo.Sales
+
+    
+
