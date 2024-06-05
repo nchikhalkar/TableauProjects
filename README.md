@@ -1,5 +1,6 @@
 # Descriptive analysis on E-cart company data
 **Business Task**
+
 Our e-cart business head wants our data analytics team to perform descriptive analysis to find out how the business has been running. As a final deliverable, we are expected to provide insights in the form of an interactive and dynamic dashboard displaying the below information and KPIs.
 
 The interactive & dynamic dashboard should include :
@@ -56,4 +57,28 @@ Average delivery time required by our company to deliver products in each state.
     JOIN dbo.Sales ON dbo.Customer.customer_ID = dbo.Sales.customer_id
     GROUP BY state;
     
+The most preferred ship mode and delivery time taken by them.
+
+     select ship_mode, ROUND(AVG(delivery_time), 0) AS avg_delivery_time
+     from dbo.Sales
+     group by ship_mode
+Calulated revenue 
+
+     SELECT customer_id, SUM(CAST(sales AS decimal(18, 2)) * CAST(quantity AS int)) AS revenue
+     FROM dbo.Sales
+     GROUP BY customer_id;          
+     
+     ALTER TABLE dbo.Sales
+     ADD revenue int;
+     
+     update  dbo.Sales
+     set revenue = CAST(sales AS decimal(18, 2)) * CAST(quantity AS int)
+
+Revenue generated from each state.
+
+     select sum(revenue) as "revenue by state", state
+     from dbo.Customer
+     join dbo.Sales on dbo.Customer.customer_id=dbo.Sales.customer_id
+     group by state
+
 
