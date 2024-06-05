@@ -107,5 +107,14 @@ Quantities sold and Revenue generated from different Categories
      from dbo.Product
      join dbo.Product on dbo.Product.product_id=dbo.Sales.product_id
      group by category
+     
+**VISUALISATION Reporting**
 
+<img src = "https://github.com/nchikhalkar/TableauProjects/blob/main/Screenshots/Avg-Del-TIme.png">
+
+It can be concluded that on an average the time required to deliver products in almost all state was around 4–6 days.
+
+<img src = "https://github.com/nchikhalkar/TableauProjects/blob/main/Screenshots/Ship%20Mode.png">
+
+The majority of products were shipped by standard mode which takes around 6 days for delivery of products and comparatively less were shipped by other modes, especially same day delivery was ordered by least customers. It can be concluded that generally people aren’t in rush to get their products as soon as possible unless they are in urgent need of that product. People are okay with standard delivery as long as it cost’s less or is free.
 
