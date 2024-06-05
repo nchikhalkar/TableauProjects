@@ -81,4 +81,31 @@ Revenue generated from each state.
      join dbo.Sales on dbo.Customer.customer_id=dbo.Sales.customer_id
      group by state
 
+Quantity bought and Revenue generated from each customer
+
+     SELECT SUM(quantity) AS [total items bought], SUM(revenue) AS revenue_generated, customer
+     FROM dbo.Customer
+     JOIN dbo.Sales ON dbo.Customer.customer_id = dbo.Sales.customer_id
+     GROUP BY customer;
+
+Revenue for different quarters and years.
+
+     SELECT YEAR(order_date) AS [year], SUM(revenue) AS revenue_generated
+     FROM dbo.Sales
+     GROUP BY YEAR(order_date);
+     
+Quantities sold and Revenue generated from different subcategories
+
+     select sub_category, sum(quantity) as Quantity_of_subcategory_products_sold, sum(revenue) as revenue_from_sub_categories
+     from dbo.Product
+     join dbo.Product on product.product_id=dbo.Sales.product_id
+     group by sub_category
+
+Quantities sold and Revenue generated from different Categories
+   
+     select category, sum(quantity) as Quantity_of_category_products_sold, sum(revenue) as revenue_from_categories
+     from dbo.Product
+     join dbo.Product on dbo.Product.product_id=dbo.Sales.product_id
+     group by category
+
 
